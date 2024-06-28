@@ -33,6 +33,16 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    hr.custom-line {
+        border: none;
+        border-top: 2px solid black;
+        width: 100%;
+        margin: 20px auto;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -142,23 +152,56 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p>
+          <!-- <p>
             Large foundation models pretrained on raw web-scale data are not readily deployable without additional step of extensive alignment to human preferences.
             Such alignment is typically done by collecting large amounts of pairwise comparisons from humans ("Do you prefer output A or B?") and learning a reward model or a policy with the Bradley-Terry-Luce (BTL) model as a proxy for a human's underlying implicit preferences.
             These methods generally suffer from assuming a universal preference shared by all humans, which lacks the flexibility of adapting to plurality of opinions and preferences.
+          </p> -->
+          <p>
             In this work, we propose PAL, a framework to model human preference complementary to existing pretraining strategies, which incorporates plurality from the ground up.
             We propose using the ideal point model as a lens to view alignment using preference comparisons.
             Together with our novel reformulation and using mixture modeling, our framework captures the plurality of population preferences while simultaneously learning a common preference latent space across different preferences, which can few-shot generalize to new, unseen users.
             Our approach enables us to use the penultimate-layer representation of large foundation models and simple MLP layers to learn reward functions that are on-par with the existing large state-of-the-art reward models, thereby enhancing efficiency of reward modeling significantly. 
             We show that PAL achieves competitive reward model accuracy compared to strong baselines on 1) Language models with Summary dataset ; 2) Image Generative models with Pick-a-Pic dataset ; 3) A new semisynthetic heterogeneous dataset generated using Anthropic Personas. 
+          </p>
+          <p>
             Finally, our experiments also highlight the shortcoming of current preference datasets that are created using rigid rubrics which wash away heterogeneity, and call for more nuanced data collection approaches.
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
+  </div>
 </section>
 
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <hr class="custom-line">
+    <div class="columns is-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3 has-text-centered"> <img src="./static/images/icon-yes-no.png" style="width: 5%; height: auto;">&nbsp; What is Ideal Point Model ?</h2>
+        <img src="./static/images/ideal-point-model.png" alt="Description of the image">
+        <p>
+          The ideal point model is a statistical model that is used to analyze the preferences of individuals or groups.
+          It is broadly used in political science, sociology, and economics to model the preferences of voters, legislators, or other decision-makers.
+          The ideal point model assumes that each individual has an ideal point in a multidimensional space, and that the individual's preference for a particular alternative is a function of the distance between the alternative and the individual's ideal point.
+        </p>
+      </div>
+    </div>
+    <hr class="custom-line">
+    <div class="columns is-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3 has-text-centered"><img src="./static/images/icon-user-group.png" style="width: 5%; height: auto;">&nbsp; Mixture Modeling on Heterogeneous Human Preference</h2>
+        <img src="./static/images/PAL-models.png" alt="Description of the image">
+        <p>
+          haha
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <section class="section" id="BibTeX">
