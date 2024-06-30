@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="A framework to model heterogenous human preference with multiple reward models">
+        content="A framework to model heterogeneous human preference with multiple reward models">
   <meta name="keywords" content="AI alignment, Heterogeneous Preference Learning, Large Language Models, Reward Model">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PAL: Pluralistic Alignment Framework for Learning from Heterogeneous Preferences</title>
@@ -204,16 +204,35 @@
     <hr class="custom-line">
     <h2 class="title is-3 has-text-centered"><img src="./static/images/icon-dataset.png" style="width: 5%; height: auto;">&nbsp; Heterogeneous Semi-Synthetic Datasets</h2>
     <div class="columns is-centered">
-      <div class="column is-six-fifths">
-        <h5 class="title is-5 has-text-centered">Persona Dataset</h5>
+      <div class="column is-half">
+        <h5 class="title is-5 has-text-centered"><em>Persona</em> <text style="font-size: small;">dataset</text></h5>
+        <div class="is-flex is-align-items-center is-justify-content-center" style="height: 200px;">
+          <img src="./static/images/persona.png" alt="Description of the image" style="max-height: 100%; max-width: 100%;">
+        </div>
         <p>
-          haha1
+          The Anthropic Personas dataset comprises a collection of personalities, each associated with 500 statements that align with the persona and 500 statements that do not.
+          <br> <br>
+          We utilize this dataset to create a heterogeneous preference dataset by sampling pairs of persona statements and imitating the preference choices of human groups with diverse personality preferences.
         </p>
       </div>
-      <div class="column is-six-fifths">
-        <h5 class="title is-5 has-text-centered">Pick-a-Filter Dataset</h5>
+      <div class="column is-half">
+        <h5 class="title is-5 has-text-centered"><em>Pick-a-Filter</em> <text style="font-size: small;">dataset</text></h5>
+        <div class="is-flex is-align-items-center is-justify-content-center" style="height: 200px;">
+          <img src="./static/images/pick-a-filter.png" alt="Description of the image" style="max-height: 100%; max-width: 100%;">
+        </div>
         <p>
-          haha2
+          The Pick-a-Pic dataset is a large, open dataset for human feedback in text-to-image generation, designed to align pre-trained models with human preferences.
+          <br> <br>
+          We construct the Pick-a-Filter dataset by adding various color filters to the generated images, thereby explicitly incorporating diverse user preferences into the Pick-a-Pic V1 dataset.
+        </p>
+      </div>
+    </div>
+    <hr class="custom-line">
+    <div class="columns is-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3 has-text-centered"><img src="./static/images/icon-performance.png" style="width: 5%; height: auto;">&nbsp; Performance</h2>
+        <p>
+          
         </p>
       </div>
     </div>
