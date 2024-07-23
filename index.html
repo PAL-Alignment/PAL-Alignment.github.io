@@ -76,7 +76,7 @@
               <a href="https://aniketrege.github.io/" target="_blank">Aniket Rege</a>,
             </span>
             <span class="author-block">
-              <a href="https://ramyakv.github.io/" target="_blank">Ramya Korakai Vinayak</a>
+              <a href="https://ramyakv.github.io/" target="_blank">Ramya Korlakai Vinayak</a>
             </span>
           </div>
           <!-- authors institute -->
@@ -111,7 +111,7 @@
                 </a>
               </span>
               <!-- Code Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="https://github.com/ChenDaiwei-99/PAL-Pluralistic-Alignment-Framework"
                    class="external-link button is-normal is-rounded is-dark"
                    target="_blank"
@@ -121,7 +121,7 @@
                   </span>
                   <span>Code</span>
                   </a>
-              </span>
+              </span> -->
               <!-- Dataset Link. -->
               <span class="link-block">
                 <a href="https://huggingface.co/datasets/ramya-ml/pickapic-embeds"
@@ -146,10 +146,16 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h4 class="subtitle has-text-centered">
-        🔥<span style="color: #ff3860">[NEW!]</span> <b>PAL Framework</b> has been accepted by 2024 ICML workshop 
-        (<a href="https://sites.google.com/view/tf2m" target="_blank">TF2M</a> and <a href="https://sites.google.com/view/mhf-icml2024" target="_blank">MFHAIA</a>)
+        🔥<span style="color: #ff3860">[NEW!]</span> <b>PAL</b> has been accepted at 2024 ICML workshops:
+        <a href="https://sites.google.com/view/tf2m" target="_blank">TF2M</a> and <a href="https://sites.google.com/view/mhf-icml2024" target="_blank">MFHAIA</a>.
       </h4>
       <img src="./static/images/PAL-teaser.png" alt="Description of the image">
+      <p>
+        PAL is a framework designed to learn reward models for alignment that suit diverse, heterogeneous human preferences. For some user \(i\), the probability of 
+        preferring the left item \(x_l\) to right item \(x_r\) given conditioning \(x_c\) is given by reward model \(r_\theta\). PAL learns \(r_\theta\) with a mixture
+        modeling approach over \(K\) prototypes that represent \(K\) subgroups - this captures the shared structure of human preferences (subpopulations), while also 
+        suiting the specific differences between individual people.
+      </p>
     </div>
   </div>
 </section>
@@ -167,14 +173,14 @@
             These methods generally suffer from assuming a universal preference shared by all humans, which lacks the flexibility of adapting to plurality of opinions and preferences.
           </p> -->
           <p>
-            In this work, we propose PAL, a framework to model human preference complementary to existing pretraining strategies, which incorporates plurality from the ground up.
-            We propose using the ideal point model as a lens to view alignment using preference comparisons.
-            Together with our novel reformulation and using mixture modeling, our framework captures the plurality of population preferences while simultaneously learning a common preference latent space across different preferences, which can few-shot generalize to new, unseen users.
-            Our approach enables us to use the penultimate-layer representation of large foundation models and simple MLP layers to learn reward functions that are on-par with the existing large state-of-the-art reward models, thereby enhancing efficiency of reward modeling significantly. 
-            We show that PAL achieves competitive reward model accuracy compared to strong baselines on 1) Language models with Summary dataset ; 2) Image Generative models with Pick-a-Pic dataset ; 3) A new semisynthetic heterogeneous dataset generated using Anthropic Personas. 
+            We propose PAL, an alignment framework complementary to existing pretraining strategies, which is designed to model the diverse, heterogeneous nature (<em><a href="https://arxiv.org/abs/2402.05070">plurality</a></em>) of human preferences from the ground up.
+            Contrary to the status-quo paired preference <a href="https://www.jstor.org/stable/2334029">Bradley-Terry model</a> used by many popular LLMs and LVMs today, we reframe the alignment problem using <a href="https://psycnet.apa.org/record/1951-00045-001">Coombs' ideal point model</a> and a mixture modeling approach. 
+            PAL captures the plurality of the preferences of a population of users while simultaneously learning a shared preference latent space, which can few-shot generalize to new, unseen users.
+            PAL demonstrates the efficacy of cheap and efficient reward modeling - our approach learns reward functions via simple MLP layers (on top of the penultimate-layer dense representations learned by large pretrained foundation models) that are on-par with the existing large state-of-the-art reward models which are typically in the billion parameter regime. 
+            We show that PAL achieves competitive reward model accuracy compared to strong baselines on 1) Language models with OpenAI's <a href="https://github.com/openai/summarize-from-feedback">TL;DR dataset</a> ; 2) Text-to-Image models with the <a href="https://stability.ai/research/pick-a-pic">Pick-a-Pic dataset</a> ; 3) A new semi-synthetic heterogeneous dataset generated using <a href="https://www.evals.anthropic.com/">Anthropic Personas</a>. 
           </p>
           <p>
-            Finally, our experiments also highlight the shortcoming of current preference datasets that are created using rigid rubrics which wash away heterogeneity, and call for more nuanced data collection approaches.
+            Our experiments also highlight a key shortcoming of current preference datasets that are created using rigid rubrics which wash away heterogeneity, and we make a case for more nuanced data collection approaches.
           </p>
         </div>
       </div>
@@ -190,28 +196,78 @@
     <hr class="custom-line">
     <div class="columns is-centered">
       <div class="column is-six-fifths">
-        <h2 class="title is-3 has-text-centered"> <img src="./static/images/icon-yes-no.png" style="width: 5%; height: auto;">&nbsp; What is Ideal Point Model ?</h2>
+        <h2 class="title is-3 has-text-centered"> <img src="./static/images/icon-yes-no.png" style="width: 5%; height: auto;">&nbsp; What is the Ideal Point Model ?</h2>
         <img src="./static/images/ideal-point-model.png" alt="Description of the image">
         <p>
-          The ideal point model is a statistical model that is used to analyze the preferences of individuals or groups.
+          The ideal point model (<a href="https://psycnet.apa.org/record/1951-00045-001">Coombs, 1950</a>) is a statistical model that is used to analyze the preferences of individuals or groups.
           It is broadly used in political science, sociology, and economics to model the preferences of voters, legislators, or other decision-makers.
-          The ideal point model assumes that each individual has an ideal point in a multidimensional space, and that the individual's preference for a particular alternative is a function of <strong style="color: #ff3860;">the distance between the alternative and the individual's ideal point</strong>.
+          The ideal point model assumes that <strong style="color: #ff3860;">each individual has an "ideal point"</strong> in some high-dimensional space \(\mathbb{R}^d\), and that the individual's preference for a particular alternative 
+          is a function of <b>the distance between the alternative and the individual's ideal point</b>. The ideal point model is well suited for heterogeneous preference learning, which we discuss below.
         </p>
       </div>
     </div>
-    <hr class="custom-line">
+    <!-- <hr class="custom-line"> -->
     <div class="columns is-centered">
       <div class="column is-six-fifths">
-        <h2 class="title is-3 has-text-centered"><img src="./static/images/icon-user-group.png" style="width: 5%; height: auto;">&nbsp; Mixture Modeling on Heterogeneous Human Preference</h2>
+        <h2 class="title is-3 has-text-centered"><img src="./static/images/icon-user-group.png" style="width: 5%; height: auto;">&nbsp; PAL: Mixture Modeling for Heterogeneous Preferences</h2>
         <img src="./static/images/PAL-models.png" alt="Description of the image">
         <p>
-          In reality, different people can have different preferences that are not just noisy perturbations of a universal model. That is, people can differ in systematically different ways. However, there are shared aspects across subgroups of people, e.g., owing to demographics, educational, socio-cultural, or other types of similarities. We propose a framework to capture human preferences by considering these differences and similarities 
-          by modeling the preferences of individuals with a low-rank model. In particular, we use <strong style="color: #ff3860;">a mixture modeling approach</strong> for capturing diverse preferences where we model each user as a convex combination of K prototypes. 
+          In reality, different people can have different preferences that are not just noisy perturbations of a universal model, i.e. <strong style="color: #ff3860;">people can differ in systematically different ways</strong>! 
+          People's preferences are not completely unique - there are shared aspects of preferences within <em>subgroups</em> of people, for example owing to similar demographics and educational, socio-cultural, or other types of similarities. 
+          PAL is designed to suit this structure of human preferences - in particular, we use <b>a mixture modeling approach</b> to capture diverse individual preferences across <b>\(K\) subgroups</b>, where each user's preference (ideal point) is a convex combination of:
+        </p>
+        <p>
+          <ul>
+            <li><b><br>&nbsp;Model A</b>: \(K\) prototypical ideal points.</li>
+            <li><b>&nbsp;Model B</b>: \(K\) protypical functions mapping input prompts to ideal points.</li>
+          </ul>
+        </p>
+        <p>
+          <br> Here the \(K\) prototypes represent the shared structure across subpopulations, while each users' weights \(W\) over the prototypes represent their individuality.
         </p>
       </div>
     </div>
     <hr class="custom-line">
-    <h2 class="title is-3 has-text-centered"><img src="./static/images/icon-dataset.png" style="width: 5%; height: auto;">&nbsp; Heterogeneous Semi-Synthetic Datasets</h2>
+    <h2 class="title is-3 has-text-centered"><img src="./static/images/icon-gaussian.png" style="width: 5%; height: auto;">&nbsp; Experiments: Gaussian Synthetic Dataset</h2>
+    <h3 class="title is-5 ">Hypothesis: if we create a synthetic dataset with a "ground truth" subpopulation structure (injecting heterogeneity), PAL should be able to learn these groups well.</h3>
+    <div class="columns is-centered">
+      <div class="column is-six-fifths">
+        <p>
+          Assume \( K^* \) "true" user prototypes \(\{\mathbf{p}_i\}_{i=1}^{K^*}\), where \(\mathbf{p}_i \sim \mathcal{N}(0,(1/d)I)\). We consider two settings: 
+        </p>
+        <br>
+        <p>
+          <ul>
+            <li>&nbsp;&nbsp; 1) <strong>Mixture</strong> setting: each user is located in the convex hull of \( K \) learned prototypes</li>
+            <li>&nbsp;&nbsp; 2) <strong>Partition</strong> setting: \( N \) users are evenly sampled from \( K \) learned prototypes, with \(\mathbf{a}_i \in \{\mathbf{p}_k\}_{k=1}^{K}\)</li>
+          </ul>
+        </p>
+        <br>
+        <p>
+          Each sample is generated as follows: we randomly draw two items \(\{\mathbf{x}_l, \mathbf{x}_r\}\) and one user \(\mathbf{a}_i\), and label the user's preference as \(\text{sign}(\|f^*(\mathbf{x}_l)-f^*(\mathbf{a}_i)\|_2-\|f^*(\mathbf{x}_r)-f^*(\mathbf{a}_i)\|_2)\). 
+          We generate a total of \( n \) samples per user to learn the user's ideal point. We use model A with a single-layer MLP (without bias) with hinge loss and evaluate on the held-out test set, which we split into two disjoint sets:
+          <ul>
+            <li><br>&nbsp;&nbsp; 1) <strong>Seen user</strong>: user who provides labeled preferences in train and test set.</li>
+            <li>&nbsp;&nbsp; 2) <strong>Unseen user</strong>: user who provides labeled preferences in test set but not train set.</li>
+          </ul>
+        </p>
+        <br>
+        <h4 class="title is-5 ">Results:</h4>
+        <img src="./static/images/gaussian-performance.png">
+        <p>
+          <ul>
+            <li>&nbsp;(a) <b>Learnability</b>: PAL can align the <strong style="color: #ff8838;">learned</strong> and <strong style="color: #383bff;">true</strong> user ideal points in the representation space \(\mathbb{R}^3\).</li>
+            <li>&nbsp;(b) <b>Adapting to Plurality</b>: a PAL <strong style="color: #f7af79;">homogeneous</strong> reward model (\( K = 1 \)) is suboptimal when <strong style="color: #6605c1;">diverse preferences</strong> exist (\( K^* \gt 1 \)). 
+            When we allow for learning plurality by setting \( K \gt 1 \), PAL enables a significant 5-7% accuracy gain. </li>
+            <li>&nbsp;(c) <b>Sample Complexity</b>: as we increase # training samples for seen users, PAL achieves higher test accuracy, and is also more accurate in capturing # true prototypes in the dataset (accuracy peaks at \( K = K^* \)).</li>
+            <li>&nbsp;(d) <b>Generalization</b>: for unseen users (users not in the train set), PAL can generalize to accurately predict preferences with \( \sim 50 \) labeled examples.</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+    <hr class="custom-line">
+    <h2 class="title is-3 has-text-centered"><img src="./static/images/icon-dataset.png" style="width: 5%; height: auto;">&nbsp; Experiments: Heterogeneous Semi-Synthetic Datasets</h2>
+    <h3 class="title is-5 ">Hypothesis: if we synthetically inject diverse preferences into real datasets, PAL should still be able to learn these groups reasonably well.</h3>
     <div class="columns is-centered">
       <div class="column is-half">
         <h5 class="title is-5 has-text-centered"><em>Persona</em> <text style="font-size: small;">dataset</text></h5>
@@ -219,19 +275,19 @@
           <img src="./static/images/persona.png" alt="Description of the image" style="max-height: 100%; max-width: 100%;">
         </div>
         <p>
-          The Anthropic Personas dataset comprises a collection of personalities, each associated with 500 statements that align with the persona and 500 statements that do not.
+          The <a href="https://www.evals.anthropic.com/">Anthropic Personas</a> dataset contains a collection of personalities or personas, each associated with 500 statements that align with the persona and 500 statements that do not.
           <br> <br>
-          We utilize this dataset to create a heterogeneous preference dataset by sampling pairs of persona statements and imitating the preference choices of human groups with diverse personality preferences.
+          We create a heterogeneous preference dataset by sampling pairs of persona statements and imitating the preference choices of subpopulation groups with diverse personality preferences.
         </p>
         <hr class="custom-line-dashed">
         <p>
-          <img src="./static/images/icon-performance.png" style="width: 4%; height: auto;">&nbsp; <strong>Performance</strong>: 
+          <img src="./static/images/icon-performance.png" style="width: 4%; height: auto;">&nbsp; <strong>Results</strong>: 
           <div class="is-flex is-align-items-center is-justify-content-center" style="height: 200px;">
             <img src="./static/images/persona-performance.png" alt="Description of the image" style="max-height: 100%; max-width: 100%;">
           </div>
           <p>
-            Figure (a, b) illustrates the generalization performance of PAL on the heterogeneous persona dataset. 
-            We observe that <strong style="color: #ff3860;">as \(K \to K^\star\), the seen accuracy increases to \(100\%\)</strong> given a sufficient number of users and number of comparisons per user. Figure (b) also shows that as we get more comparisons per user, we achieve reasonable preference prediction accuracy
+            (a) On the heterogeneous persona dataset, we observe that as # learned prototypes approach the # true prototypes, i.e. <strong style="color: #ff3860;">\(K \to K^\star\), the seen accuracy increases to \(100\%\)</strong> 
+            given a sufficient number of users and number of comparisons per user ; (b) As we get more comparisons per seen user \(n_p\), PAL eventually saturates to 100% accuracy ( when \(K\geq K^\star=3\))
           </p>
         </p>
       </div>
@@ -241,13 +297,13 @@
           <img src="./static/images/pick-a-filter.png" alt="Description of the image" style="max-height: 100%; max-width: 100%;">
         </div>
         <p>
-          The Pick-a-Pic dataset is a large, open dataset for human feedback in text-to-image generation, designed to align pre-trained models with human preferences.
+          The <a href="https://stability.ai/research/pick-a-pic">Pick-a-Pic dataset</a> is a large, crowdsourced open dataset of human preferences over text-to-image generation, designed to align pre-trained models with human preferences.
           <br> <br>
-          We construct the Pick-a-Filter dataset by adding various color filters to the generated images, thereby explicitly incorporating diverse user preferences into the Pick-a-Pic V1 dataset.
+          We construct the Pick-a-Filter dataset by assuming two subpopulation groups that prefer warm (red) or cool (blue) tones. We apply simple color filters to Pick-a-Pic V1 to semi-synthetically inject this heterogeneity.
         </p>
         <hr class="custom-line-dashed">
         <p>
-          <img src="./static/images/icon-performance.png" style="width: 4%; height: auto;">&nbsp; <strong>Performance</strong>: 
+          <img src="./static/images/icon-performance.png" style="width: 4%; height: auto;">&nbsp; <strong>Results</strong>: 
           <div class="is-flex is-align-items-center is-justify-content-center" style="height: 200px;">
             <img src="./static/images/pick-a-filter-performance.png" alt="Description of the image" style="max-height: 100%; max-width: 100%;">
           </div>
@@ -255,40 +311,9 @@
             <!-- We train our proposed reward model, PAL Model-B (PAL-B), on the Pick-a-Filter dataset with different mixture ratio and number of prototypes.
             PAL-B effectively captures diverse preferences across mixture ratios in Pick-a-Filter. -->
             <!-- <br><br> -->
-            The figure illustrates that PAL enables learning beyond a universal preference \(K^* > 1\) to identify diverse user preference groups. 
-            We observe that
-            <strong style="color: #ff3860;">PAL significantly outperforms the homogeneous reward model</strong> in predicting user preferences -- at a mixture ratio of 1, PAL achieves <strong style="color: #ff3860;">\(95.2\%\) </strong> test accuracy compared to \(75.4\%\) from the homogeneous reward model.
+            PAL enables learning beyond a universal preference \(K^* > 1\) to identify diverse user preference groups. 
+            We observe that <strong style="color: #ff3860;">PAL significantly outperforms the homogeneous reward model</strong> in predicting user preferences - at a mixture ratio of 1, PAL achieves <strong>\(95.2\%\) </strong> test accuracy compared to \(75.4\%\) from the homogeneous reward model (\(K=1\)).
           </p>
-        </p>
-      </div>
-    </div>
-    <hr class="custom-line">
-    <h2 class="title is-3 has-text-centered"><img src="./static/images/icon-gaussian.png" style="width: 5%; height: auto;">&nbsp; Simulation Experiment: Gaussian Synthetic Dataset</h2>
-    <div class="columns is-centered">
-      <div class="column is-six-fifths">
-        <p>
-          Assume \( K^* \) user prototypes \(\{\mathbf{p}_i\}_{i=1}^{K^*}\), where \(\mathbf{p}_i \sim \mathcal{N}(0,(1/d)I)\). We consider two settings: 
-        </p>
-        <br>
-        <p>
-          &nbsp;&nbsp; 1) a <strong>mixture</strong> setting, where we assume each user is located in the convex hull of \( K \) prototypes;
-        </p>
-        <p>
-          &nbsp;&nbsp; 2) a simpler <strong>partition</strong> setting, where we assume \( N \) users are evenly sampled from \( K \) prototypes, with \(\mathbf{a}_i \in \{\mathbf{p}_k\}_{k=1}^{K}\). 
-        </p>
-        <br>
-        <p>
-          Each sample is generated as follows: we randomly draw two items \(\{\mathbf{x}_l, \mathbf{x}_r\}\) and one user \(\mathbf{a}_i\), and label the user's preference as \(\text{sign}(\|f^*(\mathbf{x}_l)-f^*(\mathbf{a}_i)\|_2-\|f^*(\mathbf{x}_r)-f^*(\mathbf{a}_i)\|_2)\). 
-          We generate a total of \( n \) samples per user to learn the user's ideal point. We use model A with a single-layer MLP (without bias) with hinge loss and evaluate on the held-out test set.
-        </p>
-        <br>
-        <img src="./static/images/gaussian-performance.png">
-        <p>
-          Figure (a) shows that PAL can align the user ideal points to the true user ideal points in the representation space. 
-          Figure (b) shows that the homogeneous reward model (# prototypes = 1) can only achieve sub-optimal performance on the simulated dataset when diverse preferences exist. 
-          When we learn pluralistic preferences by setting multiple learnable prototypes with PAL, we gain a significant 7% accuracy boost. 
-          Figure (c) shows that as we increase the number of training samples for seen users, PAL achieves higher test accuracy, and is also more accurate in capturing the true number of prototypes in the dataset (which we know from simulations).
-          Figure (d) shows that even for the unseen users (new users not in the training set), PAL can effectively generalize to accurately predict preferences with fewer examples.
         </p>
       </div>
     </div>
@@ -307,18 +332,12 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre>
-      <code>@misc{
-          chen2024pal,
-          title={PAL: Pluralistic Alignment Framework for Learning from Heterogeneous Preferences}, 
-          author={Daiwei Chen and Yi Chen and Aniket Rege and Ramya Korlakai Vinayak},
-          year={2024},
-          eprint={2406.08469},
-          archivePrefix={arXiv},
-          primaryClass={id='cs.LG' full_name='Machine Learning' is_active=True alt_name=None in_archive='cs' is_general=False description='Papers on all aspects of machine learning research (supervised, unsupervised, reinforcement learning, bandit problems, and so on) including also robustness, explanation, fairness, and methodology. cs.LG is also an appropriate primary category for applications of machine learning methods.'}
-        }
-      </code>
-    </pre>
+    <pre><code>@article{chen2024pal,
+        title={PAL: Pluralistic Alignment Framework for Learning from Heterogeneous Preferences},
+        author={Chen, Daiwei and Chen, Yi and Rege, Aniket and Vinayak, Ramya Korlakai},
+        journal={arXiv preprint arXiv:2406.08469},
+        year={2024}
+      }</code></pre>
   </div>
 </section>
 
@@ -330,7 +349,7 @@
         This work was supported by <b>NSF grants NCS-FO 2219903</b> and <b>NSF CAREER Award CCF 2238876</b>.
       </p>
       <p>
-        <b>Usage and License Notices</b>: The data, code and checkpoint is intended and licensed for research use only.
+        <b>Usage and License Notice</b>: The data, code and model checkpoints are intended for research use.
       </p>
   </div>
 </section>
