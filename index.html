@@ -245,7 +245,7 @@
         </p>
       </div>
     </div>
-    <!-- <hr class="custom-line"> -->
+    <hr class="custom-line">
     <div class="columns is-centered">
       <div class="column is-six-fifths">
         <h2 class="title is-3 has-text-centered"><img src="./static/images/icon-user-group.png" style="width: 5%; height: auto;">&nbsp; PAL: Mixture Modeling for Heterogeneous Preferences</h2>
@@ -406,6 +406,35 @@
           This term decays as the number of seen users \(N\) increases. 
           The second term characterizes how well our few-shot preference localization for a new unseen user generalizes to unseen pairs of this user. 
           This term indicates a sample complexity of \(\tilde{O}(K)\) and suggests efficient generalization, especially since \(K\) can be quite small in practice.
+        </p>
+      </div>
+      <hr class="custom-line">
+    <h2 class="title is-3 has-text-centered"><img src="./static/images/icon-gaussian.png" style="width: 5%; height: auto;">&nbsp; Simulation Experiment: Gaussian Synthetic Dataset</h2>
+    <div class="columns is-centered">
+      <div class="column is-six-fifths">
+        <p>
+          Assume \( K^* \) user prototypes \(\{\mathbf{p}_i\}_{i=1}^{K^*}\), where \(\mathbf{p}_i \sim \mathcal{N}(0,(1/d)I)\). We consider two settings: 
+        </p>
+        <br>
+        <p>
+          &nbsp;&nbsp; 1) a <strong>mixture</strong> setting, where we assume each user is located in the convex hull of \( K \) prototypes;
+        </p>
+        <p>
+          &nbsp;&nbsp; 2) a simpler <strong>partition</strong> setting, where we assume \( N \) users are evenly sampled from \( K \) prototypes, with \(\mathbf{a}_i \in \{\mathbf{p}_k\}_{k=1}^{K}\). 
+        </p>
+        <br>
+        <p>
+          Each sample is generated as follows: we randomly draw two items \(\{\mathbf{x}_l, \mathbf{x}_r\}\) and one user \(\mathbf{a}_i\), and label the user's preference as \(\text{sign}(\|f^*(\mathbf{x}_l)-f^*(\mathbf{a}_i)\|_2-\|f^*(\mathbf{x}_r)-f^*(\mathbf{a}_i)\|_2)\). 
+          We generate a total of \( n \) samples per user to learn the user's ideal point. We use model A with a single-layer MLP (without bias) with hinge loss and evaluate on the held-out test set.
+        </p>
+        <br>
+        <img src="./static/images/gaussian-performance.png">
+        <p>
+          Figure (a) shows that PAL can align the user ideal points to the true user ideal points in the representation space. 
+          Figure (b) shows that the homogeneous reward model (# prototypes = 1) can only achieve sub-optimal performance on the simulated dataset when diverse preferences exist. 
+          When we learn pluralistic preferences by setting multiple learnable prototypes with PAL, we gain a significant 7% accuracy boost. 
+          Figure (c) shows that as we increase the number of training samples for seen users, PAL achieves higher test accuracy, and is also more accurate in capturing the true number of prototypes in the dataset (which we know from simulations).
+          Figure (d) shows that even for the unseen users (new users not in the training set), PAL can effectively generalize to accurately predict preferences with fewer examples.
         </p>
       </div>
     </div>
