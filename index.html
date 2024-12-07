@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="description"
         content="A framework to model heterogeneous human preference with multiple reward models">
-  <meta name="keywords" content="AI alignment, Heterogeneous Preference Learning, Large Language Models, Reward Model">
+  <meta name="keywords" content="AI alignment, Heterogeneous Preference Learning, Large Language Models, Reward Model, Pluralistic Alignment">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PAL: Pluralistic Alignment Framework for Learning from Heterogeneous Preferences</title>
 
@@ -57,7 +57,7 @@
 <body>
 
 <section class="hero">
-  <div class="hero-body">
+  <div class="hero-body" style="padding-bottom:0em">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
@@ -65,7 +65,13 @@
           <h1 class="title is-1 publication-title"><text style="color:#ff3860;">PAL</text>: <text style="color:#ff3860;">P</text><text class="is-size-2">luralistic</text> <text style="color:#ff3860;">AL</text><text class="is-size-2">ignment </text><text class="is-size-2">Framework</text></h1>
           <h3 class="title is-2 publication-title is-size-3">for Learning from Heterogeneous Preferences</h3>
           <br>
-          <h5 class="subtitle is-5 publication-awards">ICML TF2M/MFHAIA workshop 2024 (Oral)</h5>
+          <!-- <h5 class="subtitle is-5 publication-awards">NIPS AFM workshop 2024</h5> -->
+          <!-- <h5 class="subtitle is-5 publication-awards">NIPS Behavior ML workshop 2024</h5> -->
+          <!-- <h5 class="subtitle is-5 publication-awards">NIPS FITML workshop 2024</h5> -->
+          <!-- <h5 class="subtitle is-5 publication-awards">NIPS Pluralistic Alignment workshop 2024</h5> -->
+          <!-- <h5 class="subtitle is-5 publication-awards">NIPS SoLaR workshop 2024</h5> -->
+          <h5 class="subtitle is-5 publication-awards">🔥<span style="color: #ff3860">[NEW!] </span>NeurIPS <a href="https://adaptive-foundation-models.org/" target="_blank">AFM</a> / <a href="https://sites.google.com/view/behavioralml/" target="_blank">Behavioral ML</a> / <a href="https://sites.google.com/view/neurips2024-ftw/home" target="_blank">FITML</a> / <a href="https://pluralistic-alignment.github.io/" target="_blank">Pluralistic Alignment</a> / <a href="https://solar-neurips.github.io/" target="_blank">SoLaR</a> workshop 2024 (Spotlight)</h5>
+          <h5 class="subtitle is-5 publication-awards">ICML <a href="https://sites.google.com/view/tf2m" target="_blank">TF2M</a> / <a href="https://sites.google.com/view/mhf-icml2024" target="_blank">MFHAIA</a> workshop 2024 (Oral)</h5>
           <!-- authors info -->
           <div class="is-size-5 publication-authors">
             <span class="author-block">
@@ -76,7 +82,10 @@
               <a href="https://aniketrege.github.io/" target="_blank">Aniket Rege</a>,
             </span>
             <span class="author-block">
-              <a href="https://ramyakv.github.io/" target="_blank">Ramya Korlakai Vinayak</a>
+              <a href="https://zwang.org/" target="_blank">Zhi Wang</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://ramyakv.github.io/" target="_blank">Ramya Korakai Vinayak</a>
             </span>
           </div>
           <!-- authors institute -->
@@ -144,18 +153,16 @@
 
 <section class="hero teaser">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <h4 class="subtitle has-text-centered">
-        🔥<span style="color: #ff3860">[NEW!]</span> <b>PAL</b> has been accepted at 2024 ICML workshops:
-        <a href="https://sites.google.com/view/tf2m" target="_blank">TF2M</a> and <a href="https://sites.google.com/view/mhf-icml2024" target="_blank">MFHAIA</a>.
+    <div>
+      <!-- <h4 class="subtitle has-text-centered">
+        🔥<span style="color: #ff3860">[NEW!]</span> <b>PAL Framework</b> has been accepted by 2024 NeurIPS workshop <br>
+        (<a href="https://adaptive-foundation-models.org/" target="_blank">AFM</a>, <a href="https://sites.google.com/view/behavioralml/" target="_blank">Behavior ML</a>, <a href="https://sites.google.com/view/neurips2024-ftw/home" target="_blank">FITML</a>, <a href="https://pluralistic-alignment.github.io/" target="_blank">Pluralistic Alignment</a>, <a href="https://solar-neurips.github.io/" target="_blank">SoLaR</a>)
       </h4>
-      <img src="./static/images/PAL-teaser.png" alt="Description of the image">
-      <p>
-        PAL is a framework designed to learn reward models for alignment that suit diverse, heterogeneous human preferences. For some user \(i\), the probability of 
-        preferring the left item \(x_l\) to right item \(x_r\) given conditioning \(x_c\) is given by reward model \(r_\theta\). PAL learns \(r_\theta\) with a mixture
-        modeling approach over \(K\) prototypes that represent \(K\) subgroups - this captures the shared structure of human preferences (subpopulations), while also 
-        suiting the specific differences between individual people.
-      </p>
+      <h4 class="subtitle has-text-centered">
+        </span> <b>PAL Framework</b> has been accepted by 2024 ICML workshop 
+        (<a href="https://sites.google.com/view/tf2m" target="_blank">TF2M</a> and <a href="https://sites.google.com/view/mhf-icml2024" target="_blank">MFHAIA</a>)
+      </h4> -->
+      <img src="./static/images/PAL-teaser-color.png" alt="Description of the image">
     </div>
   </div>
 </section>
@@ -172,16 +179,48 @@
             Such alignment is typically done by collecting large amounts of pairwise comparisons from humans ("Do you prefer output A or B?") and learning a reward model or a policy with the Bradley-Terry-Luce (BTL) model as a proxy for a human's underlying implicit preferences.
             These methods generally suffer from assuming a universal preference shared by all humans, which lacks the flexibility of adapting to plurality of opinions and preferences.
           </p> -->
-          <p>
-            We propose PAL, an alignment framework complementary to existing pretraining strategies, which is designed to model the diverse, heterogeneous nature (<em><a href="https://arxiv.org/abs/2402.05070">plurality</a></em>) of human preferences from the ground up.
-            Contrary to the status-quo paired preference <a href="https://www.jstor.org/stable/2334029">Bradley-Terry model</a> used by many popular LLMs and LVMs today, we reframe the alignment problem using <a href="https://psycnet.apa.org/record/1951-00045-001">Coombs' ideal point model</a> and a mixture modeling approach. 
-            PAL captures the plurality of the preferences of a population of users while simultaneously learning a shared preference latent space, which can few-shot generalize to new, unseen users.
-            PAL demonstrates the efficacy of cheap and efficient reward modeling - our approach learns reward functions via simple MLP layers (on top of the penultimate-layer dense representations learned by large pretrained foundation models) that are on-par with the existing large state-of-the-art reward models which are typically in the billion parameter regime. 
-            We show that PAL achieves competitive reward model accuracy compared to strong baselines on 1) Language models with OpenAI's <a href="https://github.com/openai/summarize-from-feedback">TL;DR dataset</a> ; 2) Text-to-Image models with the <a href="https://stability.ai/research/pick-a-pic">Pick-a-Pic dataset</a> ; 3) A new semi-synthetic heterogeneous dataset generated using <a href="https://www.evals.anthropic.com/">Anthropic Personas</a>. 
+          <p style="margin-bottom: 1em;">
+            Foundation models trained on internet-scale data benefit from extensive alignment to human preferences before deployment. 
+            However, existing methods typically assume a <strong style="font-style: italic; font-family:Georgia; color: black">homogeneous preference</strong> shared by all individuals, overlooking the diversity inherent in human values. 
+            In this work, we propose a general reward modeling framework for <strong style="font-style: italic; font-family:Georgia; color:black">pluralistic alignment</strong> </strong> <strong style="font-family:'Courier New', Courier, monospace; font-size:large">(PAL)</strong>, which incorporates diverse preferences from the ground up.
+            <br><br>
+            This approach not only addresses the limitations of traditional alignment methods but also offers several key advantages that make it particularly efficient for handling diverse human preferences:
+          </p>
+          <!-- <hr class="custom-line"> -->
+          <hr style="margin: 0.1em;">
+          <p style="margin-bottom: 0em;">
+            <strong class="is-size-5" style="color: #007BFF; text-align: left;">Diverse Preference Alignment:</strong> PAL can handle diverse human preferences rather than assuming a single, universal preference, addressing the variability in individual values. 
+          </p>
+          <hr style="margin: 0.1em;">
+          <p style="margin-bottom: 0em;">
+            <strong class="is-size-5" style="color: #28A745; text-align: left;">Higher Performance with Fewer Parameters:</strong> e.g. for a T2T task, PAL is 1.7% more accurate for seen users and 36% more accurate for unseen users, with 20× fewer parameters. 
+          </p>
+          <hr style="margin: 0.1em;">
+          <p style="margin-bottom: 0em;">
+            <strong class="is-size-5" style="color: #FFC107; text-align: left;">Modular Design:</strong> PAL's architecture is modular, allowing it to leverage shared common preferences while adapting to specific individual preferences. 
+          </p>
+          <hr style="margin: 0.1em;">
+          <p style="margin-bottom: 0em;">
+            <strong class="is-size-5" style="color: #DC3545; text-align: left;">Few-shot Generalization:</strong> PAL enables quick adaptation to new users' preferences with few examples, making it more efficient for personalized alignment. 
+          </p>
+          <hr style="margin: 0.1em;">
+          <div style="border: 2px; margin: 5px;">
+            <img src="./static/images/pal-reddit-main-result.png" alt="Description of the image" style="width: 70%; height: auto; display: block; margin: auto;">
+            <br>
+            <p style="width: 100%; display: block; margin: auto; font-size:large">
+              <strong style="font-family:'Courier New', Courier, monospace; font-size:large">PAL</strong> is <strong style="font-style: italic; font-family:Georgia; color: black">accuracy-compute optimal</strong> and shows <strong style="font-style: italic; font-family:Georgia; color: black"> state-of-the-art (SoTA) performance</strong>.
+            </p>
+          </div>
+          <!-- <p>
+            In this work, we propose PAL, a framework to model human preference complementary to existing pretraining strategies, which incorporates plurality from the ground up.
+            We propose using the ideal point model as a lens to view alignment using preference comparisons.
+            Together with our novel reformulation and using mixture modeling, our framework captures the plurality of population preferences while simultaneously learning a common preference latent space across different preferences, which can few-shot generalize to new, unseen users.
+            Our approach enables us to use the penultimate-layer representation of large foundation models and simple MLP layers to learn reward functions that are on-par with the existing large state-of-the-art reward models, thereby enhancing efficiency of reward modeling significantly. 
+            We show that PAL achieves competitive reward model accuracy compared to strong baselines on 1) Language models with Summary dataset ; 2) Image Generative models with Pick-a-Pic dataset ; 3) A new semisynthetic heterogeneous dataset generated using Anthropic Personas. 
           </p>
           <p>
-            Our experiments also highlight a key shortcoming of current preference datasets that are created using rigid rubrics which wash away heterogeneity, and we make a case for more nuanced data collection approaches.
-          </p>
+            Finally, our experiments also highlight the shortcoming of current preference datasets that are created using rigid rubrics which wash away heterogeneity, and call for more nuanced data collection approaches.
+          </p> -->
         </div>
       </div>
     </div>
@@ -196,8 +235,8 @@
     <hr class="custom-line">
     <div class="columns is-centered">
       <div class="column is-six-fifths">
-        <h2 class="title is-3 has-text-centered"> <img src="./static/images/icon-yes-no.png" style="width: 5%; height: auto;">&nbsp; What is the Ideal Point Model ?</h2>
-        <img src="./static/images/ideal-point-model.png" alt="Description of the image">
+        <h2 class="title is-3 has-text-centered"> <img src="./static/images/icon-yes-no.png" style="width: 5%; height: auto;">&nbsp; What is Ideal Point Model ?</h2>
+        <img src="./static/images/IPM.png" alt="Description of the image">
         <p>
           The ideal point model (<a href="https://psycnet.apa.org/record/1951-00045-001">Coombs, 1950</a>) is a statistical model that is used to analyze the preferences of individuals or groups.
           It is broadly used in political science, sociology, and economics to model the preferences of voters, legislators, or other decision-makers.
@@ -228,49 +267,69 @@
       </div>
     </div>
     <hr class="custom-line">
-    <h2 class="title is-3 has-text-centered"><img src="./static/images/icon-gaussian.png" style="width: 5%; height: auto;">&nbsp; Experiments: Gaussian Synthetic Dataset</h2>
-    <h3 class="title is-5 ">Hypothesis: if we create a synthetic dataset with a "ground truth" subpopulation structure (injecting heterogeneity), PAL should be able to learn these groups well.</h3>
+    <h2 class="title is-3 has-text-centered"><img src="./static/images/icon-dataset.png" style="width: 5%; height: auto;">&nbsp; Experiments on Heterogeneous Preference Datasets</h2>
     <div class="columns is-centered">
-      <div class="column is-six-fifths">
+      <div class="column is-half" style="box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); border: 2px dashed; margin: 5px;">
+        <h5 class="title is-5 has-text-centered"><em>Reddit TL;DR Summary </em> <text style="font-size: medium;">dataset</text></h5>
+        <div class="is-flex is-align-items-center is-justify-content-center" style="height: 200px;">
+          <img src="./static/images/reddit-dataset.png" alt="Description of the image" style="max-height: 100%; max-width: 100%;">
+        </div>
         <p>
-          Assume \( K^* \) "true" user prototypes \(\{\mathbf{p}_i\}_{i=1}^{K^*}\), where \(\mathbf{p}_i \sim \mathcal{N}(0,(1/d)I)\). We consider two settings: 
+          The <a href="https://arxiv.org/pdf/2009.01325">TL;DR Summary dataset</a> contains a series of preferences over summaries generated by language models. 
+          For each pair of summaries, a labeler determines which one is preferred or not. 
+          <br> <br>
+          We used the variant of the TL;DR dataset proposed by <a href="https://arxiv.org/abs/2402.05133">Li et al., 2024</a>, which uses the summary length as the preference. 
+          The majority group prefers longer summaries while the minority prefers shorter summaries. 
         </p>
-        <br>
+        <hr class="custom-line-dashed">
         <p>
-          <ul>
-            <li>&nbsp;&nbsp; 1) <strong>Mixture</strong> setting: each user is located in the convex hull of \( K \) learned prototypes</li>
-            <li>&nbsp;&nbsp; 2) <strong>Partition</strong> setting: \( N \) users are evenly sampled from \( K \) learned prototypes, with \(\mathbf{a}_i \in \{\mathbf{p}_k\}_{k=1}^{K}\)</li>
-          </ul>
+          <img src="./static/images/icon-performance.png" style="width: 4%; height: auto;">&nbsp; <strong>Performance</strong>: 
+          <div class="is-flex is-align-items-center is-justify-content-center" style="height: 200px;">
+            <img src="./static/images/performance-reddit.png" alt="Experiment Results" style="max-height: 100%; max-width: 100%;">
+          </div>
+          <p>
+            The table reports the performance of <strong style="font-family:'Courier New', Courier, monospace; font-size:large">PAL-B-Large</strong> (OPT-350M) compared to SoTA <a href="https://arxiv.org/abs/2402.05133">P-DPO</a>. 
+            We observe that <strong style="font-family:'Courier New', Courier, monospace; font-size:large">PAL</strong>, <strong style="color: #ff3860;">with around 6.3 billion fewer parameters</strong>, is <strong style="color: #ff3860;">\(1.7\%\)</strong> more accurate on seen users, and <strong style="color: #ff3860;">\(36\%\)</strong> more accurate on unseen users.
+            <br><br>
+            The figure illustrates <strong style="font-family:'Courier New', Courier, monospace; font-size:large">PAL</strong>'s ability to generalize effectively to unseen users in few-shot settings. 
+            As the number of samples per unseen user increases, <strong style="font-family:'Courier New', Courier, monospace; font-size:large">PAL</strong> progressively adapts to their preferences. 
+            With just <strong style="color: #ff3860;">\(20\) samples per unseen user</strong>, <strong style="font-family:'Courier New', Courier, monospace; font-size:large">PAL</strong> achieves performance comparable to that of seen users.
+          </p>
         </p>
-        <br>
+      </div>
+      <div class="column is-half"  style="box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); border: 2px dashed; margin: 5px;">
+        <h5 class="title is-5 has-text-centered"><em>Pick-A-Pic</em> <text style="font-size: medium;">dataset</text></h5>
+        <div class="is-flex is-align-items-center is-justify-content-center" style="height: 200px;">
+          <img src="./static/images/pick-a-pic.png" alt="Description of the image" style="max-height: 100%; max-width: 100%;">
+          &nbsp;
+          <img src="./static/images/pick-a-pic-2.png" alt="Description of the image" style="max-height: 100%; max-width: 100%;">
+        </div>
         <p>
-          Each sample is generated as follows: we randomly draw two items \(\{\mathbf{x}_l, \mathbf{x}_r\}\) and one user \(\mathbf{a}_i\), and label the user's preference as \(\text{sign}(\|f^*(\mathbf{x}_l)-f^*(\mathbf{a}_i)\|_2-\|f^*(\mathbf{x}_r)-f^*(\mathbf{a}_i)\|_2)\). 
-          We generate a total of \( n \) samples per user to learn the user's ideal point. We use model A with a single-layer MLP (without bias) with hinge loss and evaluate on the held-out test set, which we split into two disjoint sets:
-          <ul>
-            <li><br>&nbsp;&nbsp; 1) <strong>Seen user</strong>: user who provides labeled preferences in train and test set.</li>
-            <li>&nbsp;&nbsp; 2) <strong>Unseen user</strong>: user who provides labeled preferences in test set but not train set.</li>
-          </ul>
+          The <a>Pick-a-Pic dataset</a> is a large, open dataset for human feedback in T2I generation. 
+          There are two versions of Pick-a-Pic, v1 and v2, where v2 extends v1.
+          <br> <br>
+          To ensure a fair model evaluation, we divide the v2 test set into <em>no-leakage</em> and <em>leakage</em> subsets due to overlap (<em>leakage</em>) with the v1 train set. 
+          We only consider the 18391 samples with no preference ties, i.e. one generated image is always preferred to the other. 
         </p>
-        <br>
-        <h4 class="title is-5 ">Results:</h4>
-        <img src="./static/images/gaussian-performance.png">
+        <hr class="custom-line-dashed">
         <p>
-          <ul>
-            <li>&nbsp;(a) <b>Learnability</b>: PAL can align the <strong style="color: #ff8838;">learned</strong> and <strong style="color: #383bff;">true</strong> user ideal points in the representation space \(\mathbb{R}^3\).</li>
-            <li>&nbsp;(b) <b>Adapting to Plurality</b>: a PAL <strong style="color: #f7af79;">homogeneous</strong> reward model (\( K = 1 \)) is suboptimal when <strong style="color: #6605c1;">diverse preferences</strong> exist (\( K^* \gt 1 \)). 
-            When we allow for learning plurality by setting \( K \gt 1 \), PAL enables a significant 5-7% accuracy gain. </li>
-            <li>&nbsp;(c) <b>Sample Complexity</b>: as we increase # training samples for seen users, PAL achieves higher test accuracy, and is also more accurate in capturing # true prototypes in the dataset (accuracy peaks at \( K = K^* \)).</li>
-            <li>&nbsp;(d) <b>Generalization</b>: for unseen users (users not in the train set), PAL can generalize to accurately predict preferences with \( \sim 50 \) labeled examples.</li>
-          </ul>
+          <img src="./static/images/icon-performance.png" style="width: 4%; height: auto;">&nbsp; <strong>Performance</strong>: 
+          <div class="is-flex is-align-items-center is-justify-content-center" style="height: 200px;">
+            <img src="./static/images/performance-pick-a-pic.png" alt="Experiment Results" style="max-height: 100%; max-width: 100%;">
+          </div>
+          <p>
+            The table shows <strong>(a)</strong> <strong style="font-family:'Courier New', Courier, monospace; font-size:large">PAL</strong> matches SoTA PickScore when trained on V1 <strong style="color: #ff3860;">with 165\(\times\) fewer parameters</strong>; 
+            <strong>(b)</strong> <strong style="font-family:'Courier New', Courier, monospace; font-size:large">PAL</strong> exceeds SoTA performance on v2-no-leakage (i.e. fair comparison) by <strong style="color: #ff3860;">\(2\%\)</strong> when training on v1, and by <strong style="color: #ff3860;">\(2.5\%\)</strong> if training on v2. 
+            <!-- Training <strong style="font-family:'Courier New', Courier, monospace; font-size:large">PAL</strong> from scratch i.e. with CLIP-H embeddings, outperforms training on PickScore embeddings (which were trained on v1).  -->
+             <br><br>
+            We note that <strong style="font-family:'Courier New', Courier, monospace; font-size:large">PAL-B-Tiny</strong> (\(\sim\)6M params) exceeds SoTA performance while training on <strong style="color: #ff3860;">a single RTX 4090 GPU</strong>, whereas PickScore (\(\sim\)1B params) is trained with 8\(\times\)A100 GPUs -- highlighting the suitability of <strong style="font-family:'Courier New', Courier, monospace; font-size:large">PAL</strong> for efficient and democratic reward modeling.
+          </p>
         </p>
       </div>
     </div>
-    <hr class="custom-line">
-    <h2 class="title is-3 has-text-centered"><img src="./static/images/icon-dataset.png" style="width: 5%; height: auto;">&nbsp; Experiments: Heterogeneous Semi-Synthetic Datasets</h2>
-    <h3 class="title is-5 ">Hypothesis: if we synthetically inject diverse preferences into real datasets, PAL should still be able to learn these groups reasonably well.</h3>
     <div class="columns is-centered">
-      <div class="column is-half">
-        <h5 class="title is-5 has-text-centered"><em>Persona</em> <text style="font-size: small;">dataset</text></h5>
+      <div class="column is-half" style="box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); border: 2px dashed; margin: 5px;">
+        <h5 class="title is-5 has-text-centered"><em>Persona</em> <text style="font-size: medium;">dataset</text></h5>
         <div class="is-flex is-align-items-center is-justify-content-center" style="height: 200px;">
           <img src="./static/images/persona.png" alt="Description of the image" style="max-height: 100%; max-width: 100%;">
         </div>
@@ -291,8 +350,8 @@
           </p>
         </p>
       </div>
-      <div class="column is-half">
-        <h5 class="title is-5 has-text-centered"><em>Pick-a-Filter</em> <text style="font-size: small;">dataset</text></h5>
+      <div class="column is-half" style="box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); border: 2px dashed; margin: 5px;">
+        <h5 class="title is-5 has-text-centered"><em>Pick-a-Filter</em> <text style="font-size: medium;">dataset</text></h5>
         <div class="is-flex is-align-items-center is-justify-content-center" style="height: 200px;">
           <img src="./static/images/pick-a-filter.png" alt="Description of the image" style="max-height: 100%; max-width: 100%;">
         </div>
@@ -303,9 +362,9 @@
         </p>
         <hr class="custom-line-dashed">
         <p>
-          <img src="./static/images/icon-performance.png" style="width: 4%; height: auto;">&nbsp; <strong>Results</strong>: 
-          <div class="is-flex is-align-items-center is-justify-content-center" style="height: 200px;">
-            <img src="./static/images/pick-a-filter-performance.png" alt="Description of the image" style="max-height: 100%; max-width: 100%;">
+          <img src="./static/images/icon-performance.png" style="width: 4%; height: auto;">&nbsp; <strong>Performance</strong>: 
+          <div class="is-flex is-align-items-center is-justify-content-center" style="height: 250px;">
+            <img src="./static/images/performance-pick-a-filter.png" alt="Description of the image" style="max-height: 100%; max-width: 100%;">
           </div>
           <p>
             <!-- We train our proposed reward model, PAL Model-B (PAL-B), on the Pick-a-Filter dataset with different mixture ratio and number of prototypes.
@@ -317,6 +376,41 @@
         </p>
       </div>
     </div>
+
+    <hr class="custom-line">
+    <h2 class="title is-3 has-text-centered" style="margin-bottom: 0px"><img src="./static/images/icon-theory.png" style="width: 5%; height: auto">&nbsp; Theoretical Guarantees and Sample Complexity</h2>
+    <div class="column is-centered has-text-centered">
+      <div class="column is-six-fifths" style="display:flex; align-items: center; flex-direction: column">
+        <div style="display: inline-block; border: 2px solid blue; border-radius: 8px; text-align: center; margin: 20px; padding: 6px; width: 80%; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);">
+          <img src="./static/images/theorem-1.png" alt="Description of the image" style="max-width: 100%; height: auto; display: block;">
+        </div>
+        <!-- <p>
+          The figure illustrates that PAL enables learning beyond a universal preference \(K^* > 1\) to identify diverse user preference groups. 
+        </p> -->
+        <p  style="text-align: justify; margin-top: 10px; max-width: 100%; margin-left: auto; margin-right: auto;">
+          Observe that the bound decays as either the number of users \(N\) or the number of samples per user \(m\) increases. In addition, when \(N \ge \Omega(\dim x^2)\), the bound simplifies to \(\tilde{O} (\sqrt{K/m})\), which implies a per-user sample complexity of \(\tilde{O}(K)\). 
+          This contrasts with the existing result of \(\tilde{O}(D)\) without mixture modeling (<a href="https://arxiv.org/abs/2207.03609">Canal et al., 2022</a>).
+          The result captures the intuition that if the users amortize the cost of learning the common \(M\) and \(Q\), then each user only needs to individually learn their weights \(w_i \in \Delta^{K-1}\).
+        </p>
+      </div>
+      <hr class="custom-line-dashed">
+      <div class="column is-six-fifths" style="display:flex; align-items: center; flex-direction: column">
+        <div style="display: inline-block; border: 2px solid blue; border-radius: 8px; text-align: center; margin: 20px; padding: 6px; width: 80%; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);">
+          <img src="./static/images/theorem-2.png" alt="Description of the image" style="max-width: 100%; height: auto; display: block;">
+        </div>
+        <!-- <p>
+          The figure illustrates that PAL enables learning beyond a universal preference \(K^* > 1\) to identify diverse user preference groups. 
+        </p> -->
+        <p  style="text-align: justify; margin-top: 10px; max-width: 100%; margin-left: auto; margin-right: auto;">
+          Intuitively, the first term captures how well the common mapping and the prototypes learned on seen users' dataset translate to new unseen users. 
+          This term decays as the number of seen users \(N\) increases. 
+          The second term characterizes how well our few-shot preference localization for a new unseen user generalizes to unseen pairs of this user. 
+          This term indicates a sample complexity of \(\tilde{O}(K)\) and suggests efficient generalization, especially since \(K\) can be quite small in practice.
+        </p>
+      </div>
+    </div>
+    
+    
     <hr class="custom-line">
   </div>
 </section>
@@ -332,12 +426,18 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{chen2024pal,
-        title={PAL: Pluralistic Alignment Framework for Learning from Heterogeneous Preferences},
-        author={Chen, Daiwei and Chen, Yi and Rege, Aniket and Vinayak, Ramya Korlakai},
-        journal={arXiv preprint arXiv:2406.08469},
-        year={2024}
-      }</code></pre>
+    <pre>
+      <code>@misc{chen2024palpluralisticalignmentframework,
+        title={PAL: Pluralistic Alignment Framework for Learning from Heterogeneous Preferences}, 
+        author={Daiwei Chen and Yi Chen and Aniket Rege and Ramya Korlakai Vinayak},
+        year={2024},
+        eprint={2406.08469},
+        archivePrefix={arXiv},
+        primaryClass={cs.LG},
+        url={https://arxiv.org/abs/2406.08469},
+        }
+      </code>
+    </pre>
   </div>
 </section>
 
