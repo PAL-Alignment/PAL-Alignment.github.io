@@ -62,15 +62,17 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <!-- title -->
-          <h1 class="title is-1 publication-title"><text style="color:#ff3860;">PAL</text>: <text style="color:#ff3860;">P</text><text class="is-size-2">luralistic</text> <text style="color:#ff3860;">AL</text><text class="is-size-2">ignment </text><text class="is-size-2">Framework</text></h1>
-          <h3 class="title is-2 publication-title is-size-3">for Learning from Heterogeneous Preferences</h3>
+<!--           <h1 class="title is-1 publication-title"><text style="color:#ff3860;">PAL</text>: <text style="color:#ff3860;">P</text><text class="is-size-2">luralistic</text> <text style="color:#ff3860;">AL</text><text class="is-size-2">ignment </text><text class="is-size-2">Framework</text></h1>
+          <h3 class="title is-2 publication-title is-size-3">for Learning from Heterogeneous Preferences</h3> -->
+          <h1 class="title is-1 publication-title"><text style="color:#ff3860;">PAL</text>: Sample-Efficient Personalized Reward Modeling for <text style="color:#ff3860;">P</text><text>luralistic <text style="color:#ff3860;">Al</text><text>ignment</h1>
           <br>
           <!-- <h5 class="subtitle is-5 publication-awards">NIPS AFM workshop 2024</h5> -->
           <!-- <h5 class="subtitle is-5 publication-awards">NIPS Behavior ML workshop 2024</h5> -->
           <!-- <h5 class="subtitle is-5 publication-awards">NIPS FITML workshop 2024</h5> -->
           <!-- <h5 class="subtitle is-5 publication-awards">NIPS Pluralistic Alignment workshop 2024</h5> -->
           <!-- <h5 class="subtitle is-5 publication-awards">NIPS SoLaR workshop 2024</h5> -->
-          <h5 class="subtitle is-5 publication-awards">🔥<span style="color: #ff3860">[NEW!] </span>NeurIPS <a href="https://adaptive-foundation-models.org/" target="_blank">AFM</a> / <a href="https://sites.google.com/view/behavioralml/" target="_blank">Behavioral ML</a> (Spotlight) / <a href="https://sites.google.com/view/neurips2024-ftw/home" target="_blank">FITML</a> / <a href="https://pluralistic-alignment.github.io/" target="_blank">Pluralistic Alignment</a> / <a href="https://solar-neurips.github.io/" target="_blank">SoLaR</a> workshop 2024</h5>
+          <h5 class="subtitle is-5 publication-awards">🔥<span style="color: #ff3860"> [NEW!] <a href="https://openreview.net/forum?id=1kFDrYCuSu" target="_blank">ICLR</a> 2025</h5>
+          <h5 class="subtitle is-5 publication-awards"></span>NeurIPS <a href="https://adaptive-foundation-models.org/" target="_blank">AFM</a> / <a href="https://sites.google.com/view/behavioralml/" target="_blank">Behavioral ML</a> (Spotlight) / <a href="https://sites.google.com/view/neurips2024-ftw/home" target="_blank">FITML</a> / <a href="https://pluralistic-alignment.github.io/" target="_blank">Pluralistic Alignment</a> / <a href="https://solar-neurips.github.io/" target="_blank">SoLaR</a> workshop 2024</h5>
           <h5 class="subtitle is-5 publication-awards">ICML <a href="https://sites.google.com/view/tf2m" target="_blank">TF2M</a> / <a href="https://sites.google.com/view/mhf-icml2024" target="_blank">MFHAIA</a> workshop 2024 (Oral)</h5>
           <!-- authors info -->
           <div class="is-size-5 publication-authors">
@@ -189,26 +191,26 @@
           <!-- <hr class="custom-line"> -->
           <hr style="margin: 0.1em;">
           <p style="margin-bottom: 0em;">
-            <strong class="is-size-5" style="color: #007BFF; text-align: left;">Diverse Preference Alignment:</strong> PAL can handle diverse human preferences rather than assuming a single, universal preference, addressing the variability in individual values. 
+            <strong class="is-size-5" style="color: #007BFF; text-align: left;">Diverse Preference Alignment:</strong> PAL models the plurality or diversity of human preferences, addressing the variability or heterogeneity in individual values. 
           </p>
           <hr style="margin: 0.1em;">
           <p style="margin-bottom: 0em;">
-            <strong class="is-size-5" style="color: #28A745; text-align: left;">Higher Performance with Fewer Parameters:</strong> e.g. for a T2T task, PAL is 1.7% more accurate for seen users and 36% more accurate for unseen users, with 20× fewer parameters. 
+            <strong class="is-size-5" style="color: #28A745; text-align: left;">Accuracy-Compute Optimality:</strong> on Reddit TL;DR (text summary), PAL beats state-of-the-art P-DPO with 20× fewer parameters (Figure below). On Pick-a-Pic v2 (text-to-image), PAL beats state-of-the-art PickScore with 165x fewer parameters.
           </p>
           <hr style="margin: 0.1em;">
           <p style="margin-bottom: 0em;">
-            <strong class="is-size-5" style="color: #FFC107; text-align: left;">Modular Design:</strong> PAL's architecture is modular, allowing it to leverage shared common preferences while adapting to specific individual preferences. 
+            <strong class="is-size-5" style="color: #FFC107; text-align: left;">Modular Design:</strong> the PAL framework is modular and complementary to existing alignmnet setups. PAL provides a systematic way to incorporate shared (across groups) and personalized (to individuals) portions of preferences. 
           </p>
           <hr style="margin: 0.1em;">
           <p style="margin-bottom: 0em;">
-            <strong class="is-size-5" style="color: #DC3545; text-align: left;">Few-shot Generalization:</strong> PAL enables quick adaptation to new users' preferences with few examples, making it more efficient for personalized alignment. 
+            <strong class="is-size-5" style="color: #DC3545; text-align: left;">Few-shot Generalization:</strong> PAL enables sample-efficient adaptation to new users' preferences with few labeled examples, e.g. 20 samples on Reddit TL;DR. 
           </p>
           <hr style="margin: 0.1em;">
           <div style="border: 2px; margin: 5px;">
             <img src="./static/images/pal-reddit-main-result.png" alt="Description of the image" style="width: 70%; height: auto; display: block; margin: auto;">
             <br>
             <p style="width: 100%; display: block; margin: auto; font-size:large">
-              <strong style="font-family:'Courier New', Courier, monospace; font-size:large">PAL</strong> is <strong style="font-style: italic; font-family:Georgia; color: black">accuracy-compute optimal</strong> and shows <strong style="font-style: italic; font-family:Georgia; color: black"> state-of-the-art (SoTA) performance</strong>.
+              <strong style="font-family:'Courier New', Courier, monospace; font-size:large">PAL</strong> is <strong style="font-style: italic; font-family:Georgia; color: black">accuracy-compute optimal</strong> and <strong style="font-style: italic; font-family:Georgia; color: black"> state-of-the-art</strong> on Reddit TL;DR.
             </p>
           </div>
           <!-- <p>
@@ -238,7 +240,7 @@
         <h2 class="title is-3 has-text-centered"> <img src="./static/images/icon-yes-no.png" style="width: 5%; height: auto;">&nbsp; What is Ideal Point Model ?</h2>
         <img src="./static/images/IPM.png" alt="Description of the image">
         <p>
-          The ideal point model (<a href="https://psycnet.apa.org/record/1951-00045-001">Coombs, 1950</a>) is a statistical model that is used to analyze the preferences of individuals or groups.
+          PAL is inspired by the ideal point model (<a href="https://psycnet.apa.org/record/1951-00045-001">Coombs, 1950</a>), which is a statistical model used to analyze the preferences of individuals or groups.
           It is broadly used in political science, sociology, and economics to model the preferences of voters, legislators, or other decision-makers.
           The ideal point model assumes that <strong style="color: #ff3860;">each individual has an "ideal point"</strong> in some high-dimensional space \(\mathbb{R}^d\), and that the individual's preference for a particular alternative 
           is a function of <b>the distance between the alternative and the individual's ideal point</b>. The ideal point model is well suited for heterogeneous preference learning, which we discuss below.
@@ -456,15 +458,15 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre>
-      <code>@misc{chen2024palpluralisticalignmentframework,
-        title={PAL: Pluralistic Alignment Framework for Learning from Heterogeneous Preferences}, 
-        author={Daiwei Chen and Yi Chen and Aniket Rege and Ramya Korlakai Vinayak},
-        year={2024},
-        eprint={2406.08469},
-        archivePrefix={arXiv},
-        primaryClass={cs.LG},
-        url={https://arxiv.org/abs/2406.08469},
-        }
+      <code>@inproceedings{
+            chen2025pal,
+            title={PAL: Sample-Efficient Personalized Reward Modeling for Pluralistic Alignment},
+            author={Chen, Daiwei and Chen, Yi and Rege, Aniket and Wang, Zhi and Korlakai Vinayak, Ramya},
+            booktitle={The Thirteenth International Conference on Learning Representations},
+            year={2025},
+            arxiv={2406.08469},
+            url={https://arxiv.org/abs/2406.08469},
+            }
       </code>
     </pre>
   </div>
